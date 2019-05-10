@@ -7,8 +7,19 @@ package database.model;
 
 /**
  *
- * @author Guest
+ * @author Simon Plogmann
  */
 public class DatabaseModel {
+    DatabaseConnectorMySQL connector;
+    QueryResult result;
+    String ip, database, username, password;
+    int port;
     
+    
+    public DatabaseModel()
+    {
+        connector = new DatabaseConnectorMySQL(ip, port, database,username, password);
+        
+        
+    }
 }
