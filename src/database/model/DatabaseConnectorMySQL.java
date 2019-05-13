@@ -1,3 +1,5 @@
+package database.model;
+
 import java.sql.*;
 
 /**
