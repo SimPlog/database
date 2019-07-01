@@ -78,9 +78,12 @@ public class QueryResult{
   @Override
   public String toString()
   {
-      
-      return null;
-      
+      String lAusgabe = "";
+      for(int i = 0; i < this.getRowCount(); i++){
+          for(int j = 0; j < data[i].length; j++){
+              lAusgabe += columnNames[j] + " " + data[i][j] + "\n";
+          }
+      }
+      return lAusgabe;
   }
-
 }
