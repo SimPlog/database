@@ -5,17 +5,24 @@
  */
 package database.view;
 
+import database.model.DatabaseModel;
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author Simon Plogmann
  */
-public class DatabaseView extends javax.swing.JFrame {
+public class DatabaseView extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form DatabaseView
      */
-    public DatabaseView() {
+    DatabaseModel model;
+    public DatabaseView(DatabaseModel pModel) {
         initComponents();
+        this.model = pModel;
+        model.addObserver(this);
     }
 
     /**
@@ -61,6 +68,11 @@ public class DatabaseView extends javax.swing.JFrame {
         jLabel3.setText("Username");
 
         jButtonConnect.setText("Connect");
+        jButtonConnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConnectActionPerformed(evt);
+            }
+        });
 
         jPasswordFieldPassword.setText("Taschi_2014");
 
@@ -122,6 +134,10 @@ public class DatabaseView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
+         model.erstelleConnector(this.jTextFieldUsername.getText(), new String(this.jPasswordFieldPassword.getPassword()));
+    }//GEN-LAST:event_jButtonConnectActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAusfuehren;
@@ -135,4 +151,9 @@ public class DatabaseView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldBefehl;
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

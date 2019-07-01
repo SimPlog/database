@@ -5,21 +5,28 @@
  */
 package database.model;
 
+import java.util.Observable;
+
 /**
  *
  * @author Simon Plogmann
  */
-public class DatabaseModel {
+public class DatabaseModel extends Observable {
     DatabaseConnectorMySQL connector;
     QueryResult result;
-    String ip = "sql.woeste.org", database = "simon", username, password;
+    String ip = "sql.woeste.org", database = "simon";
     int port = 3036;
     
     
     public DatabaseModel()
     {
-        connector = new DatabaseConnectorMySQL(ip, port, database,username, password);
         
         
+        
+    }
+    
+    public void erstelleConnector(String pUsername, String pPassword)
+    {
+        connector = new DatabaseConnectorMySQL(ip, port, database, pUsername, pPassword);
     }
 }
