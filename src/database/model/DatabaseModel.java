@@ -12,8 +12,8 @@ package database.model;
 public class DatabaseModel {
     DatabaseConnectorMySQL connector;
     QueryResult result;
-    String ip, database, username, password;
-    int port;
+    String ip = "sql.woeste.org", database = "simon", username, password;
+    int port = 3036;
     
     
     public DatabaseModel()
