@@ -5,6 +5,7 @@
  */
 package database;
 
+import database.model.DatabaseModel;
 import database.view.DatabaseView;
 
 /**
@@ -43,7 +44,7 @@ public class Datebase {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DatabaseView().setVisible(true);
+                new DatabaseView(new DatabaseModel()).setVisible(true);
             }
         });
     }
