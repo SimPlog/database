@@ -15,7 +15,7 @@ public class DatabaseModel extends Observable {
     DatabaseConnectorMySQL connector;
     QueryResult result;
     String ip = "sql.woeste.org", database = "simon";
-    int port = 3036;
+    int port = 3306;
     
     
     public DatabaseModel()
