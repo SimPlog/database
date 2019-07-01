@@ -56,6 +56,11 @@ public class DatabaseView extends javax.swing.JFrame implements Observer{
 
         jButtonAusfuehren.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jButtonAusfuehren.setText("Ausführen");
+        jButtonAusfuehren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAusfuehrenActionPerformed(evt);
+            }
+        });
 
         jTextAreaAusgabe.setColumns(20);
         jTextAreaAusgabe.setRows(5);
@@ -137,6 +142,10 @@ public class DatabaseView extends javax.swing.JFrame implements Observer{
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
          model.erstelleConnector(this.jTextFieldUsername.getText(), new String(this.jPasswordFieldPassword.getPassword()));
     }//GEN-LAST:event_jButtonConnectActionPerformed
+
+    private void jButtonAusfuehrenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAusfuehrenActionPerformed
+        model.fuehreSQLAus(jTextFieldBefehl.getText());
+    }//GEN-LAST:event_jButtonAusfuehrenActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -29,4 +29,9 @@ public class DatabaseModel extends Observable {
     {
         connector = new DatabaseConnectorMySQL(ip, port, database, pUsername, pPassword);
     }
+    
+    public void fuehreSQLAus(String pSQLStatement)
+    {
+        connector.executeStatement(pSQLStatement);
+    }
 }
